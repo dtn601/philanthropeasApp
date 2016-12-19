@@ -14,7 +14,7 @@ router.post('/',function(req, res){
 	var studentInfo = {
 		first_name: req.body.first_name,
 		last_name: req.body.last_name,
-		slack: req.body.slack
+		slack: req.body.slackj
 
 
 	};

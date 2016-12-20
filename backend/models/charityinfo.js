@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
+	userId: { type: String, required: true },
 	charity: { type: String, required: true }, 
 	email: { type: String, required: true },
 	address: { type: String, required: true },
@@ -13,7 +14,7 @@ var schema = new mongoose.Schema({
 
 });
 
-var model = mongoose.model('Charity', schema);
+var model = mongoose.model('charitys', schema);
 
 // Make this available to our other files
 module.exports = model;

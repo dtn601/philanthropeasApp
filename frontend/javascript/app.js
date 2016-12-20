@@ -31,30 +31,33 @@ $('.content').load('home.html');
       localStorage.setItem('id_token', authResult.idToken);
       // Display user information
       show_profile_info(profile);
+      validateUser();
 	    });
 	  });
 //this is call back to backend - front
-  // var showPlaylists = function(){
-  //     var idToken = localStorage.getItem('id_token');
-  //     var request = $.ajax({
-  //       url: 'http://localhost:3000/api/playlists',
-  //       method: 'GET',
-  //       headers: {
-  //         'Authorization': 'Bearer ' + idToken
-  //       }
-  //     });
+  var validateUser = function(){
+      var idToken = localStorage.getItem('id_token');
+      var request = $.ajax({
+        url: 'http://localhost:3000/dbapi/user',
+        method: 'GET',
+        headers: {
+          'Authorization': 'Bearer ' + idToken
+        }
+      });
 
       //might need data{title: }
 
 
-  //     request.done(function(results){
-  //       console.log(results);
+      request.done(function(results){
+        console.log(results);
 
-  //       for (var i=0, x=results.length; i<x; i++){
-  //         $('main').append('<h3>'+results[i].title + '</h3>');
-  //       }
-  //     })
-  // };
+        if(results === 'newaccount.html'){
+        	// redirect to new account page
+        	location.replace('/newaccount.html');
+        }
+
+      })
+  };
 
   //retrieve the profile:
   var retrieve_profile = function() {

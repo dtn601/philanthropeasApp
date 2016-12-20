@@ -2,18 +2,33 @@
 var express = require('express'),
 	router = express.Router(),
 	DonorModel = require('../models/donorinfo');
+	CharityModel = require('../models/charityinfo');
+	
+router.get('/user',function(req, res){
+	var userId = req.user.aud;
 
-// DONOR MODEL
-router.get('/',function(req, res){
-	DonorModel.find({},'',function(err,donors){
+	DonorModel.find({userId: req.user.aud},'',function(err,donor){
 		if (err) console.error('Error getting', err);
-		res.json(donors);
+		if (donor){
+			res.send('donorpage');
+		} else {
+			CharityModel.find({userId: req.user.aud },'',function(err,char){
+				if(err) console.error(err);
+
+				if(char){
+					res.send('charitypage');
+				} else {
+					res.send('newaccount.html');
+				}
+			});
+		}
+
 	});
 });
 
 router.post('/',function(req, res){
 	var donorInfo = {
-		userId: req.body.userId,
+		userId: req.user.aud,
 		fullName: req.body.fullName,
 		email: req.body.email,
 		address: req.body.address,
@@ -26,6 +41,7 @@ router.post('/',function(req, res){
 	var newDonor = new DonorModel(donorInfo);
 
 	newDonor.save(function(err,success){
+		if (err) console.log(err);
 		res.json(success);
 	});
 });

@@ -92,9 +92,9 @@ $('body').on('click','a',function(e){
 	callPage(pageRef)
 });
 
-$('body').on('click','.donerLogin',function(e){
+$('body').on('click','.donorLogin',function(e){
 	e.preventDefault();
-	var pageRef = 'donerlogin.html';
+	var pageRef = 'donorlogin.html';
 	console.log(pageRef)
 	callPage(pageRef)
 });

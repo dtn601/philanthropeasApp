@@ -9,12 +9,12 @@ $('.content').load('home.html');
 
 	});
 
-	$('.btn-login').click(function(e) {
+	$('body').on('click', '.btn-login', function(e) {
 	  e.preventDefault();
 	  lock.show();
 	});
 
-	 $('.btn-logout').click(function(e) {
+	 $('body').on('click', '.btn-logout', function(e) {
 	   e.preventDefault();
 	   logout();
 	 });

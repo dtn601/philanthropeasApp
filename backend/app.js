@@ -11,6 +11,7 @@ var jwt = require('express-jwt');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var dbApi = require('./routes/dbapi');
+var charityApi = require('./routes/charityapi');
 
 var philantropeasURL = process.env.MY_PHILANTROPEAS_DB_LOGIN
 
@@ -39,7 +40,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/dbapi', jwtCheck, dbApi)
+app.use('/dbapi', jwtCheck, dbApi);
+app.use('/charityapi', jwtCheck, charityApi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

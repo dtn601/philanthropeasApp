@@ -1,27 +1,29 @@
 
 var express = require('express'),
 	router = express.Router(),
-	StudentModel = require('../models/studentinfo');
+	DonerModel = require('../models/donerinfo');
 
 router.get('/',function(req, res){
-	StudentModel.find({},'',function(err,post){
+	DonerModel.find({},'',function(err,post){
 		if (err) console.error('Error getting', err);
 		res.json(post);
 	});
 });
 
 router.post('/',function(req, res){
-	var studentInfo = {
-		first_name: req.body.first_name,
-		last_name: req.body.last_name,
-		slack: req.body.slackj
+	var donerInfo = {
+		fullName: req.body.first_name,
+		email: req.body.email,
+		address: req.body.address,
+		state: req.body.state,
+		zip: req.body.zip
 
 
 	};
 
-	var newStudent = new StudentModel(studentInfo);
+	var newDoner = new DonerModel(donerInfo);
 
-	newStudent.save(function(err,success){
+	newDoner.save(function(err,success){
 		res.redirect('/');
 	});	
 });

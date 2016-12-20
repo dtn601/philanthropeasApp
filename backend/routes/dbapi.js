@@ -1,41 +1,47 @@
 
 var express = require('express'),
 	router = express.Router(),
-	DonerModel = require('../models/donerinfo');
+	DonorModel = require('../models/donorinfo');
 
 router.get('/',function(req, res){
-	DonerModel.find({},'',function(err,post){
+	DonorModel.find({},'',function(err,donors){
 		if (err) console.error('Error getting', err);
-		res.json(post);
+		res.json(donors);
 	});
 });
 
 router.post('/',function(req, res){
-	var donerInfo = {
-		fullName: req.body.first_name,
+	var donorInfo = {
+		fullName: req.body.fullName,
 		email: req.body.email,
 		address: req.body.address,
 		state: req.body.state,
-		zip: req.body.zip
+		zip: req.body.zip,
+		importance: req.body.importance,
+		cause: req.body.cause
 
 
 	};
 
-	var newDoner = new DonerModel(donerInfo);
+	var newDonor = new DonorModel(donorInfo);
 
-	newDoner.save(function(err,success){
-		res.redirect('/');
+	newDonor.save(function(err,success){
+		res.json(success);
 	});	
 });
 
 router.put('/',function(req, res){
 	var id = req.body.id;
 	var updateInfo = {
-		first_name: req.body.first_name,
-		last_name: req.body.last_name,
-		slack: req.body.slack
+		fullName: req.body.fullName,
+		email: req.body.email,
+		address: req.body.address,
+		state: req.body.state,
+		zip: req.body.zip,
+		importance: req.body.importance,
+		cause: req.body.cause
 	};
-	StudentModel.findByIdAndUpdate(id, updateInfo, function(err,post){
+	DonorModel.findByIdAndUpdate(id, updateInfo, function(err,post){
 		if (err) console.error(err);
 		res.send('SUCCESS!');
 	});
@@ -46,7 +52,7 @@ router.put('/',function(req, res){
 router.delete('/',function(req, res){
 	var id = req.body.id;
 
-	StudentModel.findByIdAndRemove(id,function(err,post){
+	DonorModel.findByIdAndRemove(id,function(err,post){
 		if (err) console.error(err);
 		res.send('SUCCESS!');
 	});

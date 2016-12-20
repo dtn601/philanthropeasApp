@@ -24,7 +24,8 @@ $('.content').load('home.html');
 	      if (error) {
 	        // Handle error
 	        return;
-	      };      
+	      };  
+	     // getUser(profile);     
 	  console.log(authResult.idToken);
       localStorage.setItem('id_token', authResult.idToken);
       // Display user information
@@ -91,9 +92,9 @@ $('body').on('click','a',function(e){
 	callPage(pageRef)
 });
 
-$('body').on('click','.donerLogin',function(e){
+$('body').on('click','.donorLogin',function(e){
 	e.preventDefault();
-	var pageRef = 'donerlogin.html';
+	var pageRef = 'donorlogin.html';
 	console.log(pageRef)
 	callPage(pageRef)
 });
@@ -105,7 +106,9 @@ $('body').on('click','.charityLogin',function(e){
 	callPage(pageRef)
 });
 
-
+function getUser(profile){
+	// make ajax call to express and get user info
+}
 
 
 function callPage(pageRefInput){

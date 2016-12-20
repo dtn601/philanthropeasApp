@@ -6,17 +6,24 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var jwt = require('express-jwt');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var dbApi = require('./routes/dbapi');
 
-var mongoose = require('mongoose');
 var philantropeasURL = process.env.MY_PHILANTROPEAS_DB_LOGIN
 
+var app = express();
+var cors = require('cors');
+
+var mongoose = require('mongoose');
 mongoose.connect(philantropeasURL)
 
-var app = express();
+var jwtCheck = jwt({
+	secret: process.env.AUTH0_CLIENT_SECRET,
+	audience: process.env.AUTH0_CLIENT_ID
+    });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/dbapi', dbApi)
+app.use('/dbapi', jwtCheck, dbApi)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

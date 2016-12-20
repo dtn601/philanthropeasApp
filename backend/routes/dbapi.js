@@ -43,12 +43,13 @@ router.post('/',function(req, res){
 	newDonor.save(function(err,success){
 		if (err) console.log(err);
 		res.json(success);
-	});	
+	});
 });
 
 router.put('/',function(req, res){
 	var id = req.body.id;
 	var updateInfo = {
+		userId: req.body.userId,
 		fullName: req.body.fullName,
 		email: req.body.email,
 		address: req.body.address,

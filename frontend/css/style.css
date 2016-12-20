@@ -113,7 +113,14 @@ p {
     height: 150px;
     padding-top: 2px;
 }
-
+.profile {
+  float: right;
+  display: inline;
+}
+.avatar {
+  height: 50px;
+  width: 50px;
+}
 
 
 

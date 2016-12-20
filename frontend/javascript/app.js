@@ -24,7 +24,8 @@ $('.content').load('home.html');
 	      if (error) {
 	        // Handle error
 	        return;
-	      };      
+	      };  
+	     // getUser(profile);     
 	  console.log(authResult.idToken);
       localStorage.setItem('id_token', authResult.idToken);
       // Display user information
@@ -105,7 +106,9 @@ $('body').on('click','.charityLogin',function(e){
 	callPage(pageRef)
 });
 
-
+function getUser(profile){
+	// make ajax call to express and get user info
+}
 
 
 function callPage(pageRefInput){

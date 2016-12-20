@@ -10,7 +10,7 @@ var schema = new mongoose.Schema({
 	cause: { type: String, required: true }
 });
 
-var model = mongoose.model('doners', schema);
+var model = mongoose.model('donors', schema);
 
 // Make this available to our other files
 module.exports = model;

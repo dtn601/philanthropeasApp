@@ -1,5 +1,5 @@
 
-title {
+/*title {
   font-family: 'Droid Sans', sans-serif;
   color: #00000B;
 
@@ -48,35 +48,9 @@ p {
   color: #00000B;
   font-size: 12px;
   line-height: 1;
-}
+}*/
 
 
-/*-------------- Home ----------------*/
-/*.container {
-  background-color: #57A773;
-  border-radius: 25px;
-}
-
-.home-top {
-  background-image: url("../images/web_images/tomatoes.png");
-  background-size: cover;
-  height: 300;
-  margin: 0 auto;
-}
-
-.donerLogin {
-    background-color: #9BD1E5;
-    height: 200px;
-    width: 75px;
-    border-radius: 15px
-}
-
-.charityLogin {
-    background-color: #157145;
-    height: 200px;
-    width: 75px;
-    border-radius: 15px;
-}
 
 /*-------------- Home updated ----------------*/
 .container {

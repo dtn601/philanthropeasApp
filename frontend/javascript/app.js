@@ -1,5 +1,5 @@
 $(function(){
-	console.log('loaded')
+	//console.log('loaded')
 $('.content').load('home.html');
 
 	var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
@@ -38,26 +38,28 @@ $('.content').load('home.html');
   var validateUser = function(){
       var idToken = localStorage.getItem('id_token');
       var request = $.ajax({
-        url: 'http://localhost:3000/dbapi/user',
+        url: 'http://localhost:3000/dbapi',
         method: 'GET',
         headers: {
           'Authorization': 'Bearer ' + idToken
         }
-      });
-
-      //might need data{title: }
+    });
 
 
-      request.done(function(results){
-        console.log(results);
+     // might need data{title: }
 
-        if(results === 'newaccount.html'){
-        	// redirect to new account page
-        	location.replace('/newaccount.html');
-        }
+		request.done(function(res){
+		console.log('page loaded: ', res);
+		//$('.content').html(doner_homepage.html);
+		callPage('newaccount.html')
+		});
 
-      })
-  };
+        // if(results === 'newaccount.html'){
+        // 	// redirect to new account page
+        // 	location.replace('/newaccount.html');
+        // }
+	};
+
 
   //retrieve the profile:
   var retrieve_profile = function() {

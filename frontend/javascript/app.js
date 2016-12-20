@@ -94,6 +94,7 @@ $('body').on('click','a',function(e){
 
 $('body').on('click','.donorLogin',function(e){
 	e.preventDefault();
+	console.log('clicked')
 	var pageRef = 'donorlogin.html';
 	console.log(pageRef)
 	callPage(pageRef)

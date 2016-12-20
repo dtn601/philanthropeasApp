@@ -27,6 +27,7 @@ $('.content').load('home.html');
 	      };  
 	     // getUser(profile);     
 	  console.log(authResult.idToken);
+	  console.log(profile);
       localStorage.setItem('id_token', authResult.idToken);
       // Display user information
       show_profile_info(profile);

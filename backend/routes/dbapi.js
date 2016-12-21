@@ -6,31 +6,28 @@ var express = require('express'),
 	
 router.get('/',function(req, res){
 	var userId = req.user.aud;
+	//var userId = req.body.id
 
-	DonorModel.find({userId: req.user.aud},'',function(err,donor){
+	DonorModel.find({userId: userId},'',function(err,donor){
+		console.log(donor)
 		if (err) console.error(err);
-	res.send(donor);
-	})
-
-//----Complicated doner model to access all ajax logic
-	// DonorModel.find({userId: req.user.aud},'',function(err,donor){
-	// 	if (err) console.error('Error getting', err);
-	// 	if (donor){
-	// 		res.send('donor_homepage.html');
-	// 	} else {
-	// 		CharityModel.find({userId: req.user.aud },'',function(err,char){
-	// 			if(err) console.error(err);
-
-	// 			if(char){
-	// 				res.send('charity_home_logged_in.html');
-	// 			} else {
-	// 				res.send('newaccount.html');
-	// 			}
-	// 		});
-	// 	}
-
-	// });
+		if (donor) {
+			console.log(donor)
+		res.send('donerhtml');
+		} else {
+			CharityModel.find({userId: userId},'',function(err,char){
+				console.log(char)
+				if (err) console.error(err);
+				if(char) {
+					res.send('charhtml');
+				} else {
+					res.sent('newaccount');
+						}
+			});
+		}
+	});		
 });
+	
 
 router.post('/',function(req, res){
 	var donorInfo = {
@@ -55,7 +52,7 @@ router.post('/',function(req, res){
 router.put('/',function(req, res){
 	var id = req.body.id;
 	var updateInfo = {
-		userId: req.body.userId,
+		userId: req.body.aud,
 		fullName: req.body.fullName,
 		email: req.body.email,
 		address: req.body.address,

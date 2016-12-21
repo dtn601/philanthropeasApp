@@ -10,7 +10,7 @@ var schema = new mongoose.Schema({
 	dropoff: { type: String, required: true },
 	needs: String,
 	limitations: String,
-	instructions: String,
+	instructions: String
 
 });
 

@@ -51,7 +51,13 @@ $('.content').load('home.html');
 		request.done(function(res){
 		console.log('page loaded: ', res);
 		//$('.content').html(doner_homepage.html);
-		callPage('newaccount.html')
+		
+		if(res === 'donerhtml'){
+			callPage('donor_homepage.html')
+			} else if (res === 'charhtml'){
+				callPage('charity_home_logged_in.html')
+					} else { callPage('newaccount.html')
+							}
 		});
 
         // if(results === 'newaccount.html'){

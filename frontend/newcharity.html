@@ -1,26 +1,52 @@
-<div class ="charity_input">
-	<div>
+<div class ="row accountcontainer">
+	<div class="row account">
 		<h3>Create Charity Profile</h3>
 		<form>
-			<input type="text" name="charity" placeholder="Charity/Nonprofit Name">
-			<input type="email" name="email" placeholder="Email">
-			<input type="text" name="address" placeholder="Office Address">
-			<input type="text" name="state" placeholder="State">
-			<input type="text" name="zip" placeholder="Zip">
-			<input type="text" name="dropoff" placeholder="Donation Drop-off Address">
-				<div>
-					<p>Choose Charity/Nonprofile Cause:</p>
+			<div class="col-md-12">
+				<input class="textinputs" type="text" name="charity" placeholder="Charity/Nonprofit Name">
+			</div>
+			<div class="col-md-12">
+				<input class="textinputs" type="email" name="email" placeholder="Email">
+			</div>
+			<div class="col-md-12">
+				<input class="textinputs" type="text" name="address" placeholder="Office Address">
+			</div>
+			<div class="col-md-12">
+				<input class="textinputsmulti" type="text" name="state" placeholder="State">
+				<input class="textinputsmulti" type="text" name="zip" placeholder="Zip">
+			</div>
+			<div class="col-md-12">
+				<input class="textinputs" type="text" name="dropoff" placeholder="Donation Drop-off Address">
+			</div>
+
+			<div class="col-md-6">
+			 <div class="otherinputs">
+				<p>Choose Charity/Nonprofile Cause:</p>
+				<div class="radiobtn">
 					<input type="radio" name="cause" value="homeless">Homeless
+
 					<input type="radio" name="cause" value="refugees">Refugees
+				</div>
+				<div class="radiobtn">
 					<input type="radio" name="cause" value="veterans">Veterans
 					<input type="radio" name="cause" value="seniors">Seniors
+				</div>
+				<div class="radiobtn">
 					<input type="radio" name="cause" value="disaster Relief">Disaster Relief
 					<input type="radio" name="cause" value="faith-Based">Faith-Based
+				</div>
+				<div class="radiobtn">
 					<input type="radio" name="cause" value="na">No Specific Cause
 				</div>
-				<div>
-					<p>Choose Charity/Nonprofile Cause:</p>
+			 </div>
+			</div>
+			<div class="col-md-6">
+			 <div class="otherinputs">
+				<p>Choose Charity/Nonprofile Cause:</p>
+				<div class="timecheckbox">
 					<input type="checkbox" name="time" value="24">24 Hour Drop-off
+				</div>
+				<div class="timecheckbox">
 					<input type="checkbox" name="time" value="mon">M
 					<input type="checkbox" name="time" value="tues">T
 					<input type="checkbox" name="time" value="wed">W
@@ -28,18 +54,43 @@
 					<input type="checkbox" name="time" value="fri">F
 					<input type="checkbox" name="time" value="sat">S
 					<input type="checkbox" name="time" value="sun">S
-					<input type="text" name="am">AM -
-					<input type="text" name="pm">PM
 				</div>
-			<h4>List of Food Needs:</h4>
-				<textarea name="needs" value="" cols="40" rows="8" placeholder="Items you want donated seperated by a comma"></textarea>
-			<h4>List of Food Limitations:</h4>
-				<textarea name="limitations" value="" cols="40" rows="8" placeholder="Items you don't want donated seperated by a comma"></textarea>
-			<h4>Special Instructions</h4>
-				<textarea name="instructions" value="" cols="40" rows="8" placeholder="Special Instructions"></textarea>
-			<h4>Charity Descrption, Events, Etc.</h4>
-				<textarea name="description" value="" cols="40" rows="8" placeholder="Charity Descrption, Events, Etc."></textarea>
-			<input type="submit" value="CREATE!">
+				<div class="timecheckbox">
+					<input type="text" name="am">AM -
+					<input type="text" name="pm">PM					
+				</div>
+			 </div>
+
+			</div>
+
+			<div class="col-md-12 otherinputcontainer">
+				<div class="otherinputs">
+				<h4>List of Food Needs:</h4>
+					<textarea name="needs" value="" cols="40" rows="8" placeholder="Items you want donated seperated by a comma"></textarea>
+				</div>
+			</div>
+			<div class="col-md-12 otherinputcontainer">
+				<div class="otherinputs">
+					<h4>List of Food Limitations:</h4>
+					<textarea name="limitations" value="" cols="40" rows="8" placeholder="Items you don't want donated seperated by a comma"></textarea>
+				</div>				
+			</div>
+			<div class="col-md-12 otherinputcontainer">
+				<div class="otherinputs">
+					<h4>Special Instructions</h4>
+					<textarea name="instructions" value="" cols="40" rows="8" placeholder="Special Instructions"></textarea>
+				</div>				
+			</div>
+			<div class="col-md-12 otherinputcontainer">
+				<div class="otherinputs">
+					<h4>Charity Descrption, Events, Etc.</h4>
+					<textarea name="description" value="" cols="40" rows="8" placeholder="Charity Descrption, Events, Etc."></textarea>
+				</div>				
+			</div>
+
+			<div class="col-md-12">
+				<input class="btn-account" type="submit" value="CREATE!">
+			</div>
 		</form>
 	</div>
 </div>

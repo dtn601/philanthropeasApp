@@ -15,43 +15,76 @@
     <link rel="stylesheet" type='text/css' href="css/style.css">
   </head>
 
-  <body>
+  <body class="container-fluid">
+<!-- HOLDER FOR NAV CSS-->
+    
+<!--                     -->
+    <header class="row">
+      <div class="col-md-4 logo">
+          <a href="home.html"><img src="images/web_images/philanthropeaslogo.png" alt="logo"></a>
+      </div>
 
-    <header>
-      <a href="home.html"><img src="images/web_images/philanthropeaslogo.png" alt="logo"></a>
-      <div class="profile">
-        <!--needs search bar and login-->
-      <form>
-        <input type="search" placeholder="Search Charity" name="search">
-      </form>
-      <img alt="avatar" class="avatar" style="display:none; width: 100px; height: 100px">
-      <p>Welcome <span class="nickname"></span></p>
-      <button type="submit" class="btn-logout" style="display:none;">Sign Out</button>
+      <div class="col-md-8 searchbar">
+          
+          <div class="header-search header-div">
 
-<nav>
-    <a href="home.html">home</a>
-    <a href="newcharity.html">newcharity</a>
-    <a href="newdonor.html">newdonor</a>
-    <a href="search.html">search</a>
-    <a href="newaccount.html">newaccount</a>
-    <a href="donorlanding.html">donorloggedin</a>
-    <a href="charitylanding.html">charityloggedin</a>
+                <form>
+                  <input type="search" class="searchinput" placeholder="Search Charity" name="search">
+                </form>
 
-</nav>
+          </div>
+
+      <div class="header-profile">
+        <div class="col-md-9 col-sm-9 col-xs-9 profile-div">
+            <form>
+              <input type="search" class="searchinput" placeholder="Search Charity" name="search">
+            </form>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3 profile-div">
+            <img alt="avatar" class="avatar" data-toggle="modal" data-target=".bs-example-modal-sm">
+                <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                  <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                       <button type="submit" class="btn-logout">Edit</button>
+                          <button type="submit" class="btn-logout">Sign Out</button>       
+                    </div>
+                  </div>
+                </div>
+          </div>
+
+      </div>
+
+
+
+      </div>      
+
+
+
     </header>
-    </div>
-
-    <main>
+<!--       <nav class="row">
+      <div class="col-md-12">
+          <a href="home.html">home</a>
+          <a href="newcharity.html">newcharity</a>
+          <a href="newdonor.html">newdonor</a>
+          <a href="search.html">search</a>
+          <a href="newaccount.html">newaccount</a>
+          <a href="donorlanding.html">donorloggedin</a>
+          <a href="charitylanding.html">charityloggedin</a>
+      </div>
+      </nav>
+ -->
+    <main class="row">
       <div class="content">
       </div>
     </main>
 
-    <footer>
+    <footer class="row">
       <!--CONTACT-->
       <img src="images/web_images/socialmedia.png" alt="social media">
       <img src="images/web_images/philanthropeaslogo.png" alt="logo">
     </footer>
   </body>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="javascript/app.js"></script>
 
 </html>

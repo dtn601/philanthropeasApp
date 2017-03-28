@@ -1,40 +1,49 @@
-
 var express = require('express'),
 	router = express.Router(),
 	DonorModel = require('../models/donorinfo');
 	CharityModel = require('../models/charityinfo');
+	UserModel = require('../models/userinfo');
 	
 router.get('/',function(req, res){
-	var userId = req.user.aud;
-	//var userId = req.body.id
+	//var userId = req.user.aud;
+	var userId = req.user.sub;
 
 	DonorModel.find({userId: userId},'',function(err,donor){
 		console.log(donor)
 		if (err) console.error(err);
-		if (donor) {
-			console.log(donor)
-		res.send('donerhtml');
+		if (donor.length) {
+			console.log(donor.length)
+		res.send('donorhtml');
 		} else {
 			CharityModel.find({userId: userId},'',function(err,char){
-				console.log(char)
+				console.log(char.length)
 				if (err) console.error(err);
-				if(char) {
+				if(char.length) {
 					res.send('charhtml');
 				} else {
-					res.sent('newaccount');
+					res.send('newaccount');
 						}
 			});
 		}
 	});		
 });
+
+router.get('/getdonor',function(req,res){
+	var userId = req.user.sub
+	DonorModel.findOne({userId: userId},'',function(err,donor){
+		if (err) console.error('Error getting', err);
+		res.json(donor);
+	});
+})
 	
 
 router.post('/',function(req, res){
 	var donorInfo = {
-		userId: req.user.aud,
+		userId: req.user.sub,
 		fullName: req.body.fullName,
 		email: req.body.email,
 		address: req.body.address,
+		city: req.body.city,
 		state: req.body.state,
 		zip: req.body.zip,
 		importance: req.body.importance,
@@ -52,14 +61,11 @@ router.post('/',function(req, res){
 router.put('/',function(req, res){
 	var id = req.body.id;
 	var updateInfo = {
-		userId: req.body.aud,
 		fullName: req.body.fullName,
-		email: req.body.email,
 		address: req.body.address,
+		city: req.body.city,
 		state: req.body.state,
-		zip: req.body.zip,
-		importance: req.body.importance,
-		cause: req.body.cause
+		zip: req.body.zip
 	};
 	DonorModel.findByIdAndUpdate(id, updateInfo, function(err,post){
 		if (err) console.error(err);

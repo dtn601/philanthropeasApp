@@ -1,22 +1,35 @@
-<div class="donor_creation">
-  <h2>Create a Giver Profile</h2>
-  <input type="text" name="" value="Full Name">
-  <!--Uploaded Profile Picture-->
-  <img src="" alt=""><br/>
-  <input type="text" name="email" placeholder="Email"><br/>
-  <input type="text" name="password" placeholder="Password"><br/>
-  <input type="text" name="streetaddress" placeholder="Street Address"><br/>
-  <input type="text" name="state" placeholder="State">
-  <input type="text" name="zip" placeholder="Zip">
 
-  <div class="important_to_me">
-    <h3>When i search for a charity of non-profit, _____ is more important to me.</h3><br/>
-    <input type="checkbox" name="important" value="charitymission"> Charity Mission <br/>
-    <input type="checkbox" name="important" value="location"> Location <br/>
-    <input type="checkbox" name="important" value="nopreference"> No Preference <br/>
+<div class="row accountcontainer">
+<div class="row account">
+  <h2>Create a Giver Profile</h2>
+  <div class="col-md-12">
+    <input class="fullName textinputs" type="text" name="" placeholder="Full Name">
+    <!--Uploaded Profile Picture-->
+    <img src="" alt="">
+  </div>
+  <div class="col-md-12">
+    <input class="email textinputs" type="text" name="email" placeholder="Email">
+  </div>
+  <div class="col-md-12">
+    <input class="address textinputs" type="text" name="streetaddress" placeholder="Street Address">
+  </div>
+  <div class="col-md-12">
+    <input class="city textinputsmulti" type="text" name="city" placeholder="City">
+    <input class="state textinputsmulti" type="text" name="state" placeholder="State">
+    <input class="zip textinputsmulti" type="text" name="zip" placeholder="Zip">
   </div>
 
-  <div class="causes">
+  <div class="col-md-12 otherinputcontainer">
+  <div class="otherinputs">
+    <h3>When i search for a charity of non-profit, _____ is more important to me.</h3>
+    <input type="checkbox" name="important" value="charitymission"> Charity Mission
+    <input type="checkbox" name="important" value="location"> Location
+    <input type="checkbox" name="important" value="nopreference"> No Preference
+  </div>
+  </div>
+
+  <div class="col-md-12 otherinputcontainer">
+  <div class="otherinputs">
     <h3>I am interested in the following causes: </h3>
     <input type="checkbox" name="causeinterest" value="homeless"> Homeless
     <input type="checkbox" name="causeinterest" value="seniors"> Seniors<br/>
@@ -25,6 +38,9 @@
     <input type="checkbox" name="causeinterest" value="disasterrelief"> Disaster-Relief
     <input type="checkbox" name="causeinterest" value="faith"> Faith-based<br/>
   </div>
-
-  <input type="button" name="" value="Submit">
+  </div>
+  <div class="col-md-12">
+    <input class="btn-account" type="button" name="" value="Submit">
+  </div>
+</div>
 </div>

@@ -1,10 +1,12 @@
 var express = require('express'),
 	router = express.Router(),
-	CharityModel = require('../models/charityinfo.js');
+
+	CharityModel = require('../models/charityinfo');
 
 
 router.get('/',function(req, res){
-	CharityModel.find({},'',function(err,charity){
+	var userId = req.user.sub;
+	CharityModel.findOne({userId: userId},'',function(err,charity){
 		if (err) console.error('Error getting', err);
 		res.json(charity);
 	});
@@ -12,19 +14,22 @@ router.get('/',function(req, res){
 
 router.post('/',function(req, res){
 	var charityInfo = {
-		userId: req.body.userId,
-		fullName: req.body.fullName,
+		userId: req.user.sub,
+		charity: req.body.charity,
 		email: req.body.email,
 		address: req.body.address,
 		state: req.body.state,
 		zip: req.body.zip,
-		importance: req.body.importance,
-		cause: req.body.cause
+		dropoff: req.body.dropoff,
+		cause: req.body.cause,
+		needs: req.body.needs,
+		limitations: req.body.limitations,
+		instructions: req.body.instructions
 
 
 	};
 
-	var newCharity = new ChairtyModel(charityInfo);
+	var newCharity = new CharityModel(charityInfo);
 
 	newCharity.save(function(err,success){
 		res.json(success);
@@ -34,13 +39,18 @@ router.post('/',function(req, res){
 router.put('/',function(req, res){
 	var id = req.body.id;
 	var updateInfo = {
-		userId: req.body.userId,
+		userId: req.user.sub,
 		charity: req.body.charity,
 		email: req.body.email,
 		address: req.body.address,
+		city: req.body.city,
 		state: req.body.state,
 		zip: req.body.zip,
 		dropoff: req.body.dropoff,
+		cause: req.body.cause,
+		needs: req.body.needs,
+		limitations: req.body.limitations,
+		instructions: req.body.instructions
 	};
 	CharityModel.findByIdAndUpdate(id, updateInfo, function(err,post){
 		if (err) console.error(err);
